@@ -1,0 +1,33 @@
+<ion-card>
+  <ion-card-header class="ion-margin">
+    <ion-card-subtitle>
+      <ion-row class="flex">
+        <ion-col (click)="openArticle()" class="uno">
+          <span class="text-primary">{{ index + 1 }}</span>
+          <span class="article-source-name">{{ article.source.name }}</span>
+        </ion-col>
+
+        <ion-col class="dos">
+          <ion-button class="uno" fill="clear" (click)="onOpenMenu()">
+            <ion-icon
+              slot="icon-only"
+              name="ellipsis-vertical-outline"
+            ></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-subtitle>
+    <ion-card-title >{{
+      article.title
+    }}</ion-card-title>
+  </ion-card-header>
+  <ion-img
+    (click)="openArticle()"
+    src="{{ article.urlToImage }}"
+    alt="{{ article.title }}"
+  ></ion-img>
+
+  <ion-card-content *ngIf="article.description">
+    <p>{{ article.description }}</p>
+  </ion-card-content>
+</ion-card>
